@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="Public/JS Scripts/generalSettings.js"></script>
+    <title>Hardening Kubernetes Cluster Topologies</title>
+    <style>
+        /* Uniform Article Workspace Layout */
+        .article_container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            min-height: 100vh;
+        }
+
+        .back_btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--secondaryAccentColour);
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-bottom: 2.5rem;
+            transition: transform 0.2s ease;
+        }
+
+        .back_btn:hover {
+            transform: translateX(-3px);
+        }
+
+        .article_wrapper {
+            background-color: var(--backgroundColourLight);
+            border-radius: 1rem;
+            padding: 3.5rem;
+            box-shadow: var(--boxShadow2);
+        }
+
+        .article_main_title {
+            font-size: 2.4rem;
+            font-weight: 800;
+            line-height: 1.25;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .article_meta_info {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            margin-bottom: 2.5rem;
+        }
+
+        .article_meta_info p {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .article_hero_img {
+            width: 100%;
+            height: 380px;
+            border-radius: 0.75rem;
+            margin-bottom: 3rem;
+            overflow: hidden;
+            box-shadow: var(--mainBoxShadow);
+        }
+
+        /* Clean, Readable Typography Space for Writing */
+        .article_body_text {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--paragraphTextColour);
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+        }
+
+        .article_body_text h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: initial;
+            margin-top: 1.5rem;
+            margin-bottom: -0.5rem;
+        }
+
+        .article_body_text code {
+            background-color: rgba(0, 0, 0, 0.05);
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.25rem;
+            font-size: 0.9rem;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+
+    <main class="article_container">
+        <!-- Back Navigation Button -->
+        <a href="index.html#blog_section" class="back_btn">
+            <svg xmlns="http://w3.org" height="18px" viewBox="0 -960 960 960" width="18px" fill="currentColor"><path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h527v80H313Z"/></svg>
+            Back to Articles
+        </a>
+
+        <!-- Main Workspace Document Container -->
+        <div class="article_wrapper">
+            <header>
+                <h1 class="article_main_title">Hardening Kubernetes Cluster Topologies: Translating Enterprise Networking into Declarative Policies</h1>
+                <div class="article_meta_info">
+                    <p><strong>Category:</strong> Identity & Cloud Security</p>
+                    <p><strong>Published:</strong> --</p>
+                    <p><strong>Reading Time:</strong> 6 min read</p>
+                </div>
+            </header>
+
+            <div class="article_hero_img">
+                
+            </div>
+
+            <!-- START WRITING YOUR CONTENT HERE 
+            <article class="article_body_text">
+                <p>In modern cloud engineering ecosystems, granting permanent administrative privileges to deployment pipelines creates a massive security flaw. A Zero Trust architecture shifts away from static credentials, favoring short-lived, automated identity management frameworks.</p>
+                
+                <h2>Bridging Terraform and Identity Management</h2>
+                <p>By connecting HashiCorp Terraform configuration scripts directly with Microsoft Entra ID (formerly Azure Active Directory), teams can configure automated workflows that follow strict Identity and Access Management (IAM) standards. This setup ensures that your pipeline only receives access when actively running <code>terraform apply</code> operations.</p>
+                
+                <p>Using short-lived OpenID Connect (OIDC) federation paths means you no longer store high-risk secrets or system access keys inside your code repositories. If a repository or code pipeline configuration is ever compromised, attackers cannot find active authentication keys to exploit.</p>
+
+                <h2>Enforcing Least Privilege Rules</h2>
+                <p>To establish a clean security bridge, always limit your automated service principles strictly to the specific resources they handle. Combining well-defined scope management, automated code configurations, and Entra ID access monitoring builds a safe, production-grade cloud landscape.</p>
+            </article>
+            <!- END WRITING YOUR CONTENT HERE -->
+        </div>
+    </main>
+
+    <!-- Settings Toggle System Component (Maintains site-wide uniformity) -->
+    <div id="settings_toggle" class="settings_toggle">
+        <svg xmlns="http://w3.org" height="24px" viewBox="0 -960 960 960" width="24px"><path d="m370-80-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 23-15t24-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-103 78q1 7 1 13.5v27q0 6.5-2 13.5l103 78-110 190-118-50q-11 8-23 15t-24 12L590-80H370Zm70-80h79l14-106q31-8 57.5-23.5T639-327l99 41 39-68-86-65q5-14 7-29.5t2-31.5q0-16-2-31.5t-7-29.5l86-65-39-68-99 42q-22-23-48.5-38.5T533-694l-13-106h-79l-14 106q-31 8-57.5 23.5T321-633l-99-41-39 68 86 64q-5 15-7 30t-2 32q0 16 2 31t7 30l-86 65 39 68 99-42q22 23 48.5 38.5T427-266l13 106Zm42-180q58 0 99-41t41-99q0-58-41-99t-99-41q-59 0-99.5 41T342-480q0 58 40.5 99t99.5 41Zm-2-140Z"/></svg>
+    </div>
+
+</body>
+</html>

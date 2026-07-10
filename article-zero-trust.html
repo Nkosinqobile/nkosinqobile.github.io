@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="Public/JS Scripts/generalSettings.js"></script>
+    <title>The Zero Trust Bridge - Article</title>
+    <style>
+        /* Uniform Article Workspace Layout */
+        .article_container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            min-height: 100vh;
+        }
+
+        .back_btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--secondaryAccentColour);
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-bottom: 2.5rem;
+            transition: transform 0.2s ease;
+        }
+
+        .back_btn:hover {
+            transform: translateX(-3px);
+        }
+
+        .article_wrapper {
+            background-color: var(--backgroundColourLight);
+            border-radius: 1rem;
+            padding: 3.5rem;
+            box-shadow: var(--boxShadow2);
+        }
+
+        .article_main_title {
+            font-size: 2.4rem;
+            font-weight: 800;
+            line-height: 1.25;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .article_meta_info {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            margin-bottom: 2.5rem;
+        }
+
+        .article_meta_info p {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .article_hero_img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Clean, Readable Typography Space for Writing */
+        .article_body_text {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--paragraphTextColour);
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+        }
+
+        .article_body_text h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: initial;
+            margin-top: 1.5rem;
+            margin-bottom: -0.5rem;
+        }
+
+        .article_body_text code {
+            background-color: rgba(0, 0, 0, 0.05);
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.25rem;
+            font-size: 0.9rem;
+            font-family: monospace;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="article_container">
+        <!-- Back Navigation Button -->
+        <a href="index.html#blog_section" class="back_btn">
+            <svg xmlns="http://w3.org" height="18px" viewBox="0 -960 960 960" width="18px" fill="currentColor">
+                <path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h527v80H313Z" />
+            </svg>
+            Back to Articles
+        </a>
+
+        <!-- Main Workspace Document Container -->
+        <div class="article_wrapper">
+            <header>
+                <h1 class="article_main_title">The Zero Trust Bridge: Automating Infrastructure Provisioning with
+                    Terraform and Entra ID (IAM)</h1>
+                <div class="article_meta_info">
+                    <p><strong>Category:</strong> DevOps & Cloud Security</p>
+                    <p><strong>Published:</strong> October 2025</p>
+                    <p><strong>Reading Time:</strong> 10 min read</p>
+                </div>
+            </header>
+
+            <div class="article_hero_img">
+                <img src="Public/Images/Articles/terraform-entra-zero-trust.jpg"
+                    alt="Terraform and Microsoft Entra ID Zero Trust Architecture">
+            </div>
+
+
+        </div>
+
+        <!-- START WRITING CONTENT HER -->
+        <article class="article_body_text">
+
+            <p>
+                Many Information Technology professionals begin their careers as Systems Administrators where
+                they manage servers, networks, Active Directory environments, virtualization platforms and
+                security policies. As organizations accelerate cloud adoption, manual infrastructure deployment
+                is becoming increasingly difficult to maintain. Modern enterprises require infrastructure that
+                is secure, repeatable, scalable and fully automated.
+            </p>
+
+            <p>
+                This is where DevOps practices and Infrastructure as Code (IaC) become essential. One of the
+                biggest challenges during a cloud transformation journey is maintaining strong security while
+                enabling rapid infrastructure deployment. The solution lies in combining Zero Trust security
+                principles with Infrastructure as Code tools such as Terraform and cloud identity platforms such
+                as Microsoft Entra ID.
+            </p>
+
+            <h2>Understanding Zero Trust</h2>
+
+            <p>
+                Zero Trust is built on a simple principle: <strong>Never Trust. Always Verify.</strong>
+                Unlike traditional security models that assume users inside the corporate network are
+                trustworthy, Zero Trust continuously validates users, devices and workloads before granting
+                access.
+            </p>
+
+            <p>
+                Core Zero Trust principles include:
+            </p>
+
+            <ul>
+                <li>Verify every identity</li>
+                <li>Enforce least privilege access</li>
+                <li>Assume breach</li>
+                <li>Continuously monitor activity</li>
+                <li>Automate security controls</li>
+            </ul>
+
+            <p>
+                For DevOps teams this means infrastructure should never be deployed using excessive permissions
+                or unmanaged identities.
+            </p>
+
+            <h2>The Traditional Infrastructure Challenge</h2>
+
+            <p>
+                In many organizations infrastructure deployment still follows a manual process. Administrators
+                create virtual machines, configure networking, assign permissions, deploy applications and
+                configure monitoring tools individually.
+            </p>
+
+            <p>
+                This approach introduces several challenges including human error, configuration drift,
+                inconsistent deployments, security gaps and slow delivery cycles. A single incorrectly
+                configured service account or over-privileged administrative role can create significant
+                security risks.
+            </p>
+
+            <h2>Infrastructure as Code with Terraform</h2>
+
+            <p>
+                Terraform allows engineers to define infrastructure through code rather than manually
+                configuring resources through cloud portals. Infrastructure becomes version controlled,
+                repeatable and easily auditable.
+            </p>
+
+            <pre><code>
+resource "azurerm_resource_group" "production" {
+  name     = "rg-production"
+  location = "Zimbabwe"
+}
+</code></pre>
+
+            <p>
+                Once the configuration is defined, Terraform automatically provisions the required resources.
+                Benefits include consistent deployments, automated provisioning, reduced human error and faster
+                disaster recovery.
+            </p>
+
+            <p>
+                For professionals transitioning from Systems Administration into DevOps, Terraform represents
+                the shift from managing infrastructure through graphical interfaces to managing infrastructure
+                programmatically.
+            </p>
+
+            <h2>Microsoft Entra ID as the Identity Control Plane</h2>
+
+            <p>
+                Identity is the foundation of Zero Trust security. Microsoft Entra ID provides centralized
+                Identity and Access Management (IAM) capabilities for cloud and hybrid environments.
+            </p>
+
+            <p>
+                Key capabilities include:
+            </p>
+
+            <ul>
+                <li>User Authentication</li>
+                <li>Conditional Access</li>
+                <li>Multi Factor Authentication</li>
+                <li>Role Based Access Control (RBAC)</li>
+                <li>Privileged Identity Management</li>
+                <li>Identity Governance</li>
+            </ul>
+
+            <p>
+                Rather than assigning broad permissions directly to users, organizations define security
+                policies and role assignments that ensure every action is authenticated, authorized and
+                auditable.
+            </p>
+
+            <h2>Building the Zero Trust Bridge</h2>
+
+            <p>
+                The real value emerges when Terraform and Entra ID work together. Terraform can automate not
+                only infrastructure deployment but also identity management and access control.
+            </p>
+
+            <p>
+                A modern deployment pipeline can automatically:
+            </p>
+
+            <ul>
+                <li>Create Azure resources</li>
+                <li>Create security groups</li>
+                <li>Assign RBAC permissions</li>
+                <li>Configure managed identities</li>
+                <li>Apply security policies</li>
+                <li>Enforce least privilege access</li>
+            </ul>
+
+            <pre><code>
+resource "azuread_group" "devops_team" {
+  display_name     = "DevOps-Team"
+  security_enabled = true
+}
+</code></pre>
+
+            <p>
+                Terraform automatically creates the security group within Entra ID ensuring consistency across
+                environments.
+            </p>
+
+            <pre><code>
+resource "azurerm_role_assignment" "contributor" {
+  scope                = azurerm_resource_group.production.id
+  role_definition_name = "Contributor"
+  principal_id         = azuread_group.devops_team.object_id
+}
+</code></pre>
+
+            <p>
+                This approach ensures permissions are assigned consistently every time infrastructure is
+                deployed.
+            </p>
+
+            <h2>Applying Least Privilege by Design</h2>
+
+            <p>
+                A key objective of Zero Trust is least privilege access. Instead of granting permanent
+                administrative privileges, Terraform automates the assignment of only the permissions required
+                for specific workloads.
+            </p>
+
+            <ul>
+                <li>Developers receive deployment permissions</li>
+                <li>Security teams receive monitoring access</li>
+                <li>Administrators receive infrastructure management permissions</li>
+                <li>Service accounts receive workload-specific access</li>
+            </ul>
+
+            <p>
+                This significantly reduces the attack surface while improving governance and compliance.
+            </p>
+
+            <h2>Integrating CI/CD Pipelines</h2>
+
+            <p>
+                Modern DevOps environments integrate Terraform directly into Continuous Integration and
+                Continuous Deployment pipelines.
+            </p>
+
+            <pre><code>
+                                Git Repository
+                                    ↓
+                                Pull Request
+                                    ↓
+                                Terraform Validation
+                                    ↓
+                                Security Scan
+                                    ↓
+                                Approval
+                                    ↓
+                                Terraform Apply
+                                    ↓
+                                Infrastructure Deployment
+                                    ↓
+                                Entra ID Access Configuration
+                    </code></pre>
+
+            <p>
+                Every infrastructure change becomes secure, auditable, repeatable and version controlled. This
+                aligns perfectly with Zero Trust principles.
+            </p>
+
+            <h2>Why This Matters for Systems Administrators</h2>
+
+            <p>
+                DevOps does not replace traditional Systems Administration. Instead, it extends existing
+                administration skills through automation and cloud technologies.
+            </p>
+
+            <p>
+                Systems Administrators already understand networking, DNS, DHCP, Active Directory,
+                virtualization, monitoring and security. Terraform and Entra ID transform those same skills into
+                code-driven processes capable of operating at cloud scale.
+            </p>
+
+            <p>
+                For professionals moving from SysAdmin roles into DevOps, learning Infrastructure as Code and
+                Identity as Code provides a natural progression path. Existing experience managing Windows
+                Server, VMware environments and enterprise networks becomes highly valuable when building
+                automated cloud infrastructure.
+            </p>
+
+            <h2>Conclusion</h2>
+
+            <p>
+                Zero Trust is no longer simply a security framework. It is becoming the operational foundation
+                of modern cloud environments. By combining Terraform and Microsoft Entra ID, organizations can
+                automate infrastructure provisioning while ensuring every resource, identity and workload
+                adheres to strict security controls.
+            </p>
+
+            <p>
+                The future of infrastructure is not manual configuration. The future is secure automation driven
+                by code, identity and Zero Trust principles. For Systems Administrators transitioning into
+                DevOps, mastering this combination creates a strong foundation for modern cloud engineering
+                careers.
+            </p>
+
+
+        </article>
+
+        </div>
+    </main>
+
+    <!-- Settings Toggle System Component (Maintains site-wide uniformity) -->
+    <div id="settings_toggle" class="settings_toggle">
+        <svg xmlns="http://w3.org" height="24px" viewBox="0 -960 960 960" width="24px">
+            <path
+                d="m370-80-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 23-15t24-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-103 78q1 7 1 13.5v27q0 6.5-2 13.5l103 78-110 190-118-50q-11 8-23 15t-24 12L590-80H370Zm70-80h79l14-106q31-8 57.5-23.5T639-327l99 41 39-68-86-65q5-14 7-29.5t2-31.5q0-16-2-31.5t-7-29.5l86-65-39-68-99 42q-22-23-48.5-38.5T533-694l-13-106h-79l-14 106q-31 8-57.5 23.5T321-633l-99-41-39 68 86 64q-5 15-7 30t-2 32q0 16 2 31t7 30l-86 65 39 68 99-42q22 23 48.5 38.5T427-266l13 106Zm42-180q58 0 99-41t41-99q0-58-41-99t-99-41q-59 0-99.5 41T342-480q0 58 40.5 99t99.5 41Zm-2-140Z" />
+        </svg>
+    </div>
+
+</body>
+
+</html>

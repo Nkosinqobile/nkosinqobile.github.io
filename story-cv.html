@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="Public/JS Scripts/generalSettings.js"></script>
+    <title>My Story & CV</title>
+    <style>
+        /* Uniform Clean Document Container Layout */
+        .story_page_container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            min-height: 100vh;
+        }
+
+        .back_btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--secondaryAccentColour);
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-bottom: 2.5rem;
+            transition: transform 0.2s ease;
+        }
+
+        .back_btn:hover {
+            transform: translateX(-3px);
+        }
+
+        .story_card_wrapper {
+            background-color: var(--backgroundColourLight);
+            border-radius: 1rem;
+            padding: 3.5rem;
+            box-shadow: var(--boxShadow2);
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .story_title_block h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .story_title_block p {
+            font-size: 0.9rem;
+            color: var(--paragraphTextColour);
+        }
+
+        .story_body_content {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--paragraphTextColour);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .action_row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+        }
+    </style>
+</head>
+<body>
+
+    <main class="story_page_container">
+        <!-- Back Navigation Button straight back to home -->
+        <a href="index.html" class="back_btn">
+            <svg xmlns="http://w3.org" height="18px" viewBox="0 -960 960 960" width="18px" fill="currentColor"><path d="m313-440 224 224-57 56-320-320 320-320 57 56-224 224h527v80H313Z"/></svg>
+            Back to Home
+        </a>
+
+        <!-- Main Professional Profile Container -->
+        <div class="story_card_wrapper">
+            <header class="story_title_block">
+                <h1 class="shimmer_text">My Story & Professional Background</h1>
+                <p>Academic foundations, engineering certifications, and cloud specialties.</p>
+            </header>
+
+            <article class="story_body_content">
+                <p>
+                    I am an automation and cloud-native engineer specializing in container orchestration, infrastructure automation, and enterprise networking. Combining a BSc in Informatics, a Kubernetes certification, and credentials in Network+ and Microsoft MD-102, I design scalable cloud systems and automated CI/CD pipelines. 
+                </p>
+                <p>
+                    My hands-on expertise focuses heavily on managing distributed container workloads, managing secure user lifecycle access controls, and developing robust Infrastructure as Code (IaC) solutions. All architectural frameworks and deployment setups are fully tracked and documented across my active engineering repositories.
+                </p>
+            </article>
+
+            <!-- Bottom Action Row containing your digital files -->
+            <div class="action_row">
+                
+                <!-- Primary Action: View/Download PDF CV -->
+                <button class="main_button">
+                    <a href="Public/Assets/my-cv.pdf" target="_blank">
+                        Download / View CV
+                        <div>
+                            <svg xmlns="http://w3.org" height="18px" viewBox="0 -960 960 960" width="18px"><path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/></svg>
+                        </div>
+                    </a>
+                </button>
+
+                <!-- Secondary Action: GitHub Link Grid -->
+                <button class="main_button" style="background-color: #24292e;">
+                    <a href="https://github.com/nkosinqobile" target="_blank">
+                        Explore GitHub Portfolio
+                        <div style="background-color: white;">
+                            <svg xmlns="http://w3.org" height="18px" viewBox="0 -960 960 960" width="18px"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm184-240L328-416l400-400H600v-80h240v240h-80v-128L384-360Z"/></svg>
+                        </div>
+                    </a>
+                </button>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Settings Toggle component to retain layout settings across pages -->
+    <div id="settings_toggle" class="settings_toggle">
+        <svg xmlns="http://w3.org" height="24px" viewBox="0 -960 960 960" width="24px"><path d="m370-80-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 23-15t24-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-103 78q1 7 1 13.5v27q0 6.5-2 13.5l103 78-110 190-118-50q-11 8-23 15t-24 12L590-80H370Zm70-80h79l14-106q31-8 57.5-23.5T639-327l99 41 39-68-86-65q5-14 7-29.5t2-31.5q0-16-2-31.5t-7-29.5l86-65-39-68-99 42q-22-23-48.5-38.5T533-694l-13-106h-79l-14 106q-31 8-57.5 23.5T321-633l-99-41-39 68 86 64q-5 15-7 30t-2 32q0 16 2 31t7 30l-86 65 39 68 99-42q22 23 48.5 38.5T427-266l13 106Zm42-180q58 0 99-41t41-99q0-58-41-99t-99-41q-59 0-99.5 41T342-480q0 58 40.5 99t99.5 41Zm-2-140Z"/></svg>
+    </div>
+
+</body>
+</html>
